@@ -18,7 +18,7 @@ jobs:
     - name: Pull NGINX image
       run: |
         echo "🐳 Pulling NGINX image..."
-        docker pull nginx:latest
+        docker pull nginx:alpine
         
     - name: Install Grype
       run: |
@@ -41,13 +41,13 @@ jobs:
         }
         
         # Run Grype scan in background with progress indicator
-        grype nginx:latest --output json > grype-results.json &
+        grype nginx:alpine --output json > grype-results.json &
         GRYPE_PID=$!
         show_progress $GRYPE_PID
         wait $GRYPE_PID
         
         # Generate table output
-        grype nginx:latest --output table > grype-table.txt
+        grype nginx:alpine --output table > grype-table.txt
         
         # Display table output for visibility
         echo "📋 Grype scan results:"
