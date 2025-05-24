@@ -15,7 +15,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: Pull NGINX image
+    - name: Pull Chainguarded NGINX image
       run: |
         echo "🐳 Pulling Chainguarded NGINX image..."
         docker pull cgr.dev/chainguard/nginx:latest
@@ -25,7 +25,7 @@ jobs:
         echo "🔧 Installing Grype scanner..."
         curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
         
-    - name: Scan NGINX image with Grype
+    - name: Scan Chainguarded NGINX image with Grype
       id: grype-scan
       run: |
         echo "🔍 Scanning Chainguarded NGINX image for vulnerabilities..."
