@@ -30,8 +30,23 @@ jobs:
       run: |
         echo "🔍 Scanning NGINX image for vulnerabilities..."
         
-        # Run Grype scan and capture output
-        grype nginx:latest --output json > grype-results.json
+        # Function to show progress
+        show_progress() {
+          local elapsed=0
+          while kill -0 $1 2>/dev/null; do
+            sleep 3
+            elapsed=$((elapsed + 3))
+            echo "Still scanning...$elapsed seconds"
+          done
+        }
+        
+        # Run Grype scan in background with progress indicator
+        grype nginx:latest --output json > grype-results.json &
+        GRYPE_PID=$!
+        show_progress $GRYPE_PID
+        wait $GRYPE_PID
+        
+        # Generate table output
         grype nginx:latest --output table > grype-table.txt
         
         # Display table output for visibility
