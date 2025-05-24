@@ -3,4 +3,4 @@ Proof of Pipeline
 
 Look in the workflows area...that's where the real action is for we DevSecOps folks!
 ## Versions
-0.0.1b (paraphrasing JWZ who said something like "quality is job 1.1a")
+0.0.1c (paraphrasing JWZ who said something like "quality is job 1.1a")
