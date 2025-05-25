@@ -20,4 +20,4 @@ Handy dandy video for y'all who want to try this yourself. PRs welcome too!
 https://share.cleanshot.com/BMCLGC47
 
 ## Versions
-0.0.1d (paraphrasing JWZ who said something like "quality is job 1.1a")
+0.0.1a (honoring & paraphrasing JWZ who said something like "quality is job 1.1a")
