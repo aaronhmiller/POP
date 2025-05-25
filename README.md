@@ -13,7 +13,7 @@ Look in the workflows area...that's where the *real action* is (for we DevSecOps
 
 The results depend on the mix of CVEs in the actual images at the time of your run!
 
-They will NOT promote any image with CRITICAL CVE(s). And by design, HIGHs are not logged if there are criticals, because we assume that by the time the CRIT(S) are resolved, the mix of HIGHs might have changed and there are enough JIRAs out there to keep us all busy for millenia 😬. MEDIUMs and LOWs are counted, but not expected to be acted upon. Just keepin' it real folks.
+They will NOT promote any image with CRITICAL CVE(s). And by design, HIGHs are not JIRA-fied if there are criticals, because we assume that by the time the CRIT(S) are resolved, the mix of HIGHs will likely have changed and there are enough JIRAs out there already to keep us all busy for millenia 😬. MEDIUMs and LOWs are counted, but not expected to be acted upon. Just keepin' it real folks.
 
 ## What it should look something like
 Handy [dandy video](https://share.cleanshot.com/GvThjHwv) for y'all who want to try this yourself. PRs welcome too!
