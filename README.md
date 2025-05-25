@@ -16,4 +16,4 @@ The results depend on the mix of CVEs in the actual images at the time of your r
 They will NOT promote any image with CRITICAL CVE(s). And by design, HIGHs are not logged if there are criticals, because we assume that by the time the CRIT(S) are resolved, the mix of HIGHs might have changed and there are enough JIRAs out there to keep us all busy for millenia 😬. MEDIUMs and LOWs are counted, but not expected to be acted upon. Just keepin' it real folks.
 
 ## Versions
-0.0.1c (paraphrasing JWZ who said something like "quality is job 1.1a")
+0.0.1d (paraphrasing JWZ who said something like "quality is job 1.1a")
