@@ -19,4 +19,4 @@ They will NOT promote any image with CRITICAL CVE(s). And by design, HIGHs are n
 Handy [dandy video](https://share.cleanshot.com/GvThjHwv) for y'all who want to try this yourself. PRs welcome too!
 
 ## Versions
-0.0.1b (honoring & paraphrasing JWZ who said something like "quality is job 1.1a")
+0.0.1c (honoring & paraphrasing JWZ who said something like "quality is job 1.1a")
