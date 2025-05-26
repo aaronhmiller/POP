@@ -16,7 +16,7 @@ The scan results of each depend on the mix of CVEs in the actual images at the t
 They will NOT promote any image with CRITICAL CVE(s). And by design, HIGHs are not JIRA-fied if there are criticals, because we assume that by the time the CRIT(S) are resolved, the mix of HIGHs will likely have changed and there are enough JIRAs out there already to keep us all busy for millenia 😬. MEDIUMs and LOWs are counted, but not expected to be acted upon. Just keepin' it real folks.
 
 ## What it should look something like
-Handy <a href="https://share.cleanshot.com/GvThjHwv" target="_blank">dandy video</a> for y'all who want to try this yourself. PRs welcome too!
+Handy [dandy video](https://share.cleanshot.com/GvThjHwv) for y'all who want to try this yourself. PRs welcome too!
 
 ## Versions
 0.0.1c (honoring & paraphrasing [JWZ](https://www.jwz.org/) who said something once like "quality is job 1.1a")
