@@ -14,11 +14,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    
-    - name: Pull Chainguarded NGINX image
-      run: |
-        echo "🐳 Pulling Chainguarded NGINX image..."
-        docker pull cgr.dev/chainguard/nginx:latest
         
     - name: Install Grype
       run: |
