@@ -14,11 +14,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    
-    - name: Pull NGINX Alpine image
-      run: |
-        echo "🐳 Pulling NGINX image..."
-        docker pull nginx:alpine
         
     - name: Install Grype
       run: |
