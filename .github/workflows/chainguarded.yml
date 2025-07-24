@@ -16,7 +16,12 @@ jobs:
       run: |
         echo "🔧 Installing Grype scanner..."
         curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
-        
+
+    - name: Login to Chainguard Registry
+      run: |
+        echo "🔐 Logging into Chainguard registry..."
+        docker login cgr.dev --username ${{ secrets.CGR_USERNAME }} --password ${{ secrets.CGR_PWD }}        
+
     - name: Scan Chainguarded NGINX image with Grype
       id: grype-scan
       run: |
@@ -31,9 +36,6 @@ jobs:
             echo "Still scanning...$elapsed seconds"
           done
         }
-
-        # Docker login
-        docker login "cgr.dev" --username ${{CGR_USERNAME}} --password ${{CGR_PWD}}
         
         # Run Grype scan in background with progress indicator
         grype cgr.dev/ay-ay-ron.dev/nginx:latest --output json > grype-results.json &
