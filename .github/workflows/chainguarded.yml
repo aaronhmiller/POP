@@ -20,7 +20,7 @@ jobs:
     - name: Login to Chainguard Registry
       run: |
         echo "🔐 Logging into Chainguard registry..."
-        docker login cgr.dev --username ${{ secrets.CGR_USERNAME }} --password-stdin ${{ secrets.CGR_PWD }}        
+        docker login cgr.dev --username ${{ secrets.CGR_USERNAME }} --password ${{ secrets.CGR_PWD }}        
 
     - name: Scan Chainguarded NGINX image with Grype
       id: grype-scan
