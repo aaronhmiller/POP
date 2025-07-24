@@ -31,6 +31,9 @@ jobs:
             echo "Still scanning...$elapsed seconds"
           done
         }
+
+        # Docker login
+        docker login "cgr.dev" --username ${{CGR_USERNAME}} --password ${{CGR_PWD}}
         
         # Run Grype scan in background with progress indicator
         grype cgr.dev/ay-ay-ron.dev/nginx:latest --output json > grype-results.json &
