@@ -87,24 +87,12 @@ jobs:
           
           if [ "$HIGH_COUNT" -gt 0 ]; then
             echo "📝 Logging JIRA tickets on $HIGH_COUNT CVEs."
-            echo "::warning::$HIGH_COUNT HIGH severity CVEs require JIRA tickets"
             # Here you would typically integrate with JIRA API
             # Example: curl -X POST your-jira-endpoint with CVE details
           else
             echo "🎉 0 HIGH CVEs. Nice work! Promoting to production (0 CRITICALS) and not needing to log ANY JIRAs means one thing. PARTY TIME! After the party dies down, go build some more cool features and let's do this again. This is FUN!"
           fi
         fi
-        
-    - name: Set neutral status
-      if: needs.security-scan-alpine.outputs.high_count > 0 && needs.security-scan-alpine.outputs.critical_count == 0
-      uses: actions/github-script@v7
-      with:
-        script: |
-          // This creates a neutral conclusion for this specific job
-          // Note: GitHub Actions doesn't have a direct "yellow" state,
-          // but neutral (gray circle) is the closest semantic match
-          const message = `⚠️ ${context.payload.high_count} HIGH severity vulnerabilities found. JIRA tickets required.`;
-          core.warning(message);
     
     - name: Upload Grype results
       uses: actions/upload-artifact@v4
