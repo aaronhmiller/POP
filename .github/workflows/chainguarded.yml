@@ -20,12 +20,6 @@ jobs:
     - name: Explain next step
       run: echo "🔐 Logging into registry..."
 
-    - name: Login to Chainguard Registry
-      uses: docker/login-action@v3
-      with:
-        registry: cgr.dev
-        username: ${{ secrets.CGR_USERNAME }}
-        password: ${{ secrets.CGR_PWD }}
 
     - name: Scan Chainguarded NGINX image with Grype
       id: grype-scan
@@ -43,15 +37,14 @@ jobs:
         }
         
         # Run Grype scan in background with progress indicator
-        # [note: change ay-ay-ron.dev -> chainguard to pull from public repo]
-        grype cgr.dev/ay-ay-ron.dev/nginx:latest --output json > grype-results.json &
+        grype cgr.dev/chainguard/nginx:latest --output json > grype-results.json &
         GRYPE_PID=$!
         show_progress $GRYPE_PID
         wait $GRYPE_PID
         
         # Generate table output
         # [note: change ay-ay-ron.dev -> chainguard to pull from public repo]
-        grype cgr.dev/ay-ay-ron.dev/nginx:latest --output table > grype-table.txt
+        grype cgr.dev/chainguard/nginx:latest --output table > grype-table.txt
         
         # Display table output for visibility
         echo "📋 Grype scan results:"
