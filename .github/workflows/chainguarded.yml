@@ -1,4 +1,4 @@
-name: Chainguarded NGINX Security Scan Pipeline
+name: Chainguarded Node Security Scan Pipeline
 
 on:
   push:
@@ -21,10 +21,10 @@ jobs:
       run: echo "🔐 Logging into registry..."
 
 
-    - name: Scan Chainguarded NGINX image with Grype
+    - name: Scan Chainguarded Node image with Grype
       id: grype-scan
       run: |
-        echo "🔍 Scanning Chainguarded NGINX image for vulnerabilities..."
+        echo "🔍 Scanning Chainguarded Node image for vulnerabilities..."
         
         # Function to show progress
         show_progress() {
@@ -37,14 +37,14 @@ jobs:
         }
         
         # Run Grype scan in background with progress indicator
-        grype cgr.dev/chainguard/nginx:latest --output json > grype-results.json &
+        grype cgr.dev/chainguard/node:latest --output json > grype-results.json &
         GRYPE_PID=$!
         show_progress $GRYPE_PID
         wait $GRYPE_PID
         
         # Generate table output
         # [note: change ay-ay-ron.dev -> chainguard to pull from public repo]
-        grype cgr.dev/chainguard/nginx:latest --output table > grype-table.txt
+        grype cgr.dev/chainguard/node:latest --output table > grype-table.txt
         
         # Display table output for visibility
         echo "📋 Grype scan results:"

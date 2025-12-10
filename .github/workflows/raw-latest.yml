@@ -1,4 +1,4 @@
-name: NGINX (Latest) Security Scan Pipeline
+name: Node Security Scan Pipeline
 
 on:
   push:
@@ -17,10 +17,10 @@ jobs:
         echo "🔧 Installing Grype scanner..."
         curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
         
-    - name: Scan NGINX Latest image with Grype
+    - name: Scan Node image with Grype
       id: grype-scan
       run: |
-        echo "🔍 Scanning NGINX Latest image for vulnerabilities..."
+        echo "🔍 Scanning Node image for vulnerabilities..."
         
         # Function to show progress
         show_progress() {
@@ -33,13 +33,13 @@ jobs:
         }
         
         # Run Grype scan in background with progress indicator
-        grype nginx:latest --output json > grype-results.json &
+        grype node:latest --output json > grype-results.json &
         GRYPE_PID=$!
         show_progress $GRYPE_PID
         wait $GRYPE_PID
         
         # Generate table output
-        grype nginx:latest --output table > grype-table.txt
+        grype node:latest --output table > grype-table.txt
         
         # Display table output for visibility
         echo "📋 Grype scan results:"
