@@ -18,4 +18,4 @@ The workflows will NOT promote any image with CRITICAL CVE(s). And by design, HI
 Handy [dandy video](https://share.cleanshot.com/GvThjHwv) for y'all who want to try this yourself. PRs welcome too!
 
 ## Versions
-0.0.1n (honoring & paraphrasing [JWZ](https://www.jwz.org/) who said something once like "quality is job 1.1a")
+0.0.1o (honoring & paraphrasing [JWZ](https://www.jwz.org/) who said something once like "quality is job 1.1a")
